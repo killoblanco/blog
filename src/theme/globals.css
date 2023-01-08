@@ -1,0 +1,22 @@
+* {
+  scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+  padding: 2px;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #74796c;
+  border-radius: 10px;
+}
+
+::selection {
+  background-color: #1DE9B6;
+  color: #263238;
+}
