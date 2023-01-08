@@ -6,7 +6,7 @@ import './globals.css'
 
 export const darkModeAtom = atom({
   key: 'darkModeAtom',
-  default: localStorage.getItem('darkMode') === 'true'
+  default: false
 })
 
 export const useDarkModeToggle = (): [boolean, () => void] => {
@@ -14,7 +14,6 @@ export const useDarkModeToggle = (): [boolean, () => void] => {
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode)
-    localStorage.setItem('darkMode', JSON.stringify(!darkMode))
   }
 
   return [darkMode, toggleDarkMode]
@@ -26,7 +25,6 @@ export const StylesProvider = ({ children }: PropsWithChildren): JSX.Element => 
 
   useEffect(() => {
     setDarkMode(prefersDarkMode)
-    localStorage.setItem('darkMode', JSON.stringify(prefersDarkMode))
   }, [prefersDarkMode])
 
   return (
