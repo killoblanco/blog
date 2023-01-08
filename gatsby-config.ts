@@ -10,7 +10,8 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    'gatsby-plugin-material-ui',
+    'gatsby-plugin-mui-theme',
+    'gatsby-plugin-mui-emotion',
     'gatsby-plugin-image',
     'gatsby-plugin-sitemap',
     {
