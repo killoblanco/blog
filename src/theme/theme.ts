@@ -14,6 +14,13 @@ export const theme = (darkMode: boolean): Theme => responsiveFontSizes(
             backgroundColor: 'transparent'
           }
         }
+      },
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            textTransform: 'capitalize'
+          }
+        }
       }
     },
     palette: paletteColor(darkMode ? 'dark' : 'light'),
