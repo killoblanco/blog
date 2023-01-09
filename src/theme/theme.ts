@@ -1,3 +1,4 @@
+import '@fontsource/readex-pro/300.css'
 import '@fontsource/readex-pro/400.css'
 import '@fontsource/readex-pro/500.css'
 import '@fontsource/readex-pro/600.css'
@@ -26,10 +27,13 @@ export const theme = (darkMode: boolean): Theme => responsiveFontSizes(
     palette: paletteColor(darkMode ? 'dark' : 'light'),
     typography: {
       fontFamily: 'Readex Pro, sans-serif',
+      fontWeightRegular: 300,
       fontSize: 16,
       h1: { fontWeight: 700 },
       h2: { fontWeight: 600 },
-      h3: { fontWeight: 600 }
+      h3: { fontWeight: 600 },
+      h4: { fontWeight: 500 },
+      h5: { fontWeight: 500 }
     }
   })
 )
