@@ -2,7 +2,7 @@ import type { GatsbyConfig } from 'gatsby'
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: 'blog',
+    title: 'Blog | ',
     siteUrl: 'https://blog.kamilo.dev'
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
@@ -37,6 +37,14 @@ const config: GatsbyConfig = {
         path: './src/pages/'
       },
       __key: 'pages'
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: './posts/'
+      },
+      __key: 'posts'
     }
   ]
 }
