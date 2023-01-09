@@ -4,7 +4,7 @@ import { SocialNetwork } from './social-network'
 import { PostsCategories } from './posts-cat'
 
 export const SideBar = () => (
-  <Stack spacing={2}>
+  <Stack spacing={4}>
     <SocialNetwork />
     <PostsCategories />
   </Stack>
