@@ -1,6 +1,7 @@
 import { Box, styled } from '@mui/material'
 import React from 'react'
 import starMask from '../../images/star.svg'
+import { Link } from 'gatsby'
 
 const Img = styled('img')(({ theme }) => ({
   width: 'inherit',
@@ -13,6 +14,8 @@ const Img = styled('img')(({ theme }) => ({
 
 export const Thumbnail = () => (
   <Box
+    component={Link}
+    to="/"
     sx={t => ({
       width: t.spacing(10),
       height: t.spacing(10),
