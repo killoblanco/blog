@@ -29,7 +29,7 @@ query {
       id
       excerpt(pruneLength: 280)
       frontmatter {
-        date(fromNow: true, locale: "es-CO")
+        date(locale: "es-CO", formatString: "MMM D, YYYY")
         title
         slug
       }
