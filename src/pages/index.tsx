@@ -14,7 +14,7 @@ interface DataType {
 const IndexPage: React.FC<PageProps<DataType>> = ({ data }) => (
   <Stack component="main" spacing={2.5}>
     {data.allMdx.nodes.map(({ id, ...props }) => (
-      <PostCard key={id} {...props} />
+      <PostCard key={id} id={id} {...props} />
     ))}
   </Stack>
 )
