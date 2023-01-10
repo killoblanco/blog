@@ -1,7 +1,7 @@
 import * as React from 'react'
 import type { HeadFC, PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
-import { Stack } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 import { Seo } from '../components/seo/seo'
 import { PostCard } from '../components/post-card'
 
@@ -13,6 +13,7 @@ interface DataType {
 
 const IndexPage: React.FC<PageProps<DataType>> = ({ data }) => (
   <Stack component="main" spacing={2.5}>
+    <Typography variant="h4">Artículos</Typography>
     {data.allMdx.nodes.map(({ id, ...props }) => (
       <PostCard key={id} id={id} {...props} />
     ))}
