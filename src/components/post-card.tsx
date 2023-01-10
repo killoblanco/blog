@@ -1,4 +1,4 @@
-import { Paper, Stack, Theme, Typography } from '@mui/material'
+import { Breadcrumbs, Paper, Stack, Theme, Typography } from '@mui/material'
 import { Link } from 'gatsby'
 import React from 'react'
 
@@ -7,6 +7,9 @@ const cardStyles = (t: Theme) => ({
   p: 2,
   '&:hover': {
     boxShadow: t.shadows[4]
+  },
+  '& .MuiBreadcrumbs-root .MuiBreadcrumbs-ol': {
+    justifyContent: 'flex-end'
   }
 })
 
@@ -20,9 +23,9 @@ export const PostCard = ({ excerpt, frontmatter }: PostCardProps) => (
     <Stack spacing={2}>
       <Typography variant="h5">{frontmatter.title}</Typography>
       <Typography>{excerpt}</Typography>
-      <Stack direction="row" justifyContent="flex-end">
+      <Breadcrumbs separator="·">
         <Typography variant="body2">{frontmatter.date}</Typography>
-      </Stack>
+      </Breadcrumbs>
     </Stack>
   </Paper>
 )
