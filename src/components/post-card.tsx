@@ -1,6 +1,7 @@
 import { Breadcrumbs, Paper, Stack, Theme, Typography } from '@mui/material'
 import { Link } from 'gatsby'
 import React from 'react'
+import { readingTime } from './utils/reading-time'
 
 const cardStyles = (t: Theme) => ({
   textDecoration: 'none',
@@ -13,7 +14,7 @@ const cardStyles = (t: Theme) => ({
   }
 })
 
-export const PostCard = ({ excerpt, frontmatter }: PostCardProps) => (
+export const PostCard = ({ excerpt, frontmatter, body }: PostCardProps) => (
   <Paper
     elevation={0}
     component={Link}
@@ -25,6 +26,7 @@ export const PostCard = ({ excerpt, frontmatter }: PostCardProps) => (
       <Typography>{excerpt}</Typography>
       <Breadcrumbs separator="·">
         <Typography variant="body2">{frontmatter.date}</Typography>
+        <Typography variant="body2">{readingTime(body)}</Typography>
       </Breadcrumbs>
     </Stack>
   </Paper>
