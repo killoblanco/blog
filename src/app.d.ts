@@ -12,4 +12,5 @@ interface PostCardProps {
   id: string
   excerpt: string
   frontmatter: Frontmatter
+  body: string
 }
