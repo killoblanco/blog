@@ -28,7 +28,6 @@ query {
   ) {
     nodes {
       id
-      body
       excerpt(pruneLength: 280)
       frontmatter {
         date(locale: "es-CO", formatString: "MMM D, YYYY")
