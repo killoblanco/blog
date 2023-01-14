@@ -18,9 +18,19 @@ interface PostCardProps {
   id: string
   excerpt: string
   frontmatter: Frontmatter
-  body: string
   fields: {
     slug: string
     timeToRead: TimeToRead
   }
+}
+
+interface PostPageProps {
+  allMdx: {
+    nodes: PostCardProps[]
+  }
+}
+
+interface PostPageContext {
+  id: string
+  frontmatter: Frontmatter
 }
