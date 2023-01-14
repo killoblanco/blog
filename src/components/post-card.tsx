@@ -14,11 +14,11 @@ const cardStyles = (t: Theme) => ({
   }
 })
 
-export const PostCard = ({ excerpt, frontmatter, body }: PostCardProps) => (
+export const PostCard = ({ excerpt, frontmatter, fields, body }: PostCardProps) => (
   <Paper
     elevation={0}
     component={Link}
-    to={frontmatter.slug}
+    to={fields.slug}
     sx={cardStyles}
   >
     <Stack spacing={2}>
@@ -26,7 +26,7 @@ export const PostCard = ({ excerpt, frontmatter, body }: PostCardProps) => (
       <Typography>{excerpt}</Typography>
       <Breadcrumbs separator="·">
         <Typography variant="body2">{frontmatter.date}</Typography>
-        <Typography variant="body2">{readingTime(body)}</Typography>
+        <Typography variant="body2">{readingTime(fields.timeToRead.minutes)}</Typography>
       </Breadcrumbs>
     </Stack>
   </Paper>
