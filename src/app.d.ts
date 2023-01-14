@@ -3,9 +3,15 @@ interface Frontmatter {
   date: string
   description: string
   isDraft: boolean
-  slug: string
   tags: string[]
   title: string
+}
+
+interface TimeToRead {
+  minutes: number
+  text: string
+  time: number
+  words: number
 }
 
 interface PostCardProps {
@@ -13,4 +19,8 @@ interface PostCardProps {
   excerpt: string
   frontmatter: Frontmatter
   body: string
+  fields: {
+    slug: string
+    timeToRead: TimeToRead
+  }
 }
