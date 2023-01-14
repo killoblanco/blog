@@ -1,7 +1,4 @@
-export const readingTime = (text: string) => {
-  const wordsPerMinute = 200
-  const noOfWords = text.split(/\s/g).length
-  const minutes = noOfWords / wordsPerMinute
+export const readingTime = (minutes: number) => {
   const readTime = Math.ceil(minutes)
   return `${readTime} minuto${readTime > 1 ? 's' : ''} de lectura`
 }
