@@ -22,6 +22,15 @@ export const theme = (darkMode: boolean): Theme => responsiveFontSizes(
             textTransform: 'capitalize'
           }
         }
+      },
+      MuiDivider: {
+        styleOverrides: {
+          root: {
+            '&::before, &::after': {
+              borderColor: paletteColor(darkMode ? 'dark' : 'light').primary!.dark
+            }
+          }
+        }
       }
     },
     palette: paletteColor(darkMode ? 'dark' : 'light'),
