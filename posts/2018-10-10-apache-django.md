@@ -18,7 +18,7 @@ Ya entrados en detalles, la configuración con la cual estaré trabajando en est
 guía es de un servidor [Ubuntu 16.x](https://www.ubuntu.com/download/server)
 instalado en una máquina virtual.
 
-#### Consideraciones para la máquina virtual
+## Consideraciones para la máquina virtual
 
 Si estás empezando a trabajar con software de máquinas virtuales es importante
 que tengas claro que para poder seguir esta guía tu máquina virtual debe estar
@@ -27,7 +27,7 @@ configuración de cada máquina bajo el menú de red que permite conectar dicha
 máquina bajo el adaptador de puente. Esto usualmente es suficiente para hacer
 que tu máquina virtual esté conectada a internet.
 
-#### Consideraciones para el servidor
+## Consideraciones para el servidor
 
 Aunque es claro, que en la mayoría de casos cuando instalamos un programa o algún
 tipo de complemento en nuestras computadoras no es necesario reiniciar todo el
