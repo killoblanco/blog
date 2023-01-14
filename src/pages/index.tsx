@@ -33,7 +33,12 @@ query {
       frontmatter {
         date(locale: "es-CO", formatString: "MMM D, YYYY")
         title
+      }
+      fields {
         slug
+        timeToRead {
+          minutes
+        }
       }
     }
   }
