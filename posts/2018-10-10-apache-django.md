@@ -1,10 +1,33 @@
 ---
 categories:
+  - Python
+  - Django
+  - Apache
+
 date: 2018-10-10
-description:
+description: "Aprende a configurar un servidor Apache para trabajar con
+aplicaciones web de Django en Linux. Guía detallada paso a paso con
+configuraciones para máquinas virtuales y servidores, incluyendo instalación
+de LAMP, configuración de mysql_config y actualización de dependencias.
+También se recomienda la instalación de un entorno gráfico y manejador de
+usuarios para facilitar el manejo del servidor."
+
 isDraft: false
 tags:
-title: Cómo configurar un servidor Apache para ejecutar una aplicación en Django
+  - Configurar servidor Apache
+  - Aplicaciones web Django
+  - Linux
+  - Máquinas virtuales
+  - Servidores
+  - Instalación LAMP
+  - Configuración mysql_config
+  - Actualización dependencias
+  - Entorno gráfico
+  - Manejador de usuarios
+  - Guía detallada paso a paso
+  - Ubuntu 16.x
+
+title: "Cómo configurar un servidor Apache para ejecutar una aplicación en Django"
 ---
 
 Esta mini guía muestra de manera detallada paso a paso cómo preparar un servidor
@@ -29,10 +52,12 @@ que tu máquina virtual esté conectada a internet.
 
 ## Consideraciones para el servidor
 
-Aunque es claro, que en la mayoría de casos cuando instalamos un programa o algún
+Aunque es claro, que en la mayoría de casos cuando instalamos un programa o
+algún
 tipo de complemento en nuestras computadoras no es necesario reiniciar todo el
 sistema para poder empezar a usar dicho programa; personalmente recomiendo que
-cada determinado número de tareas reiniciemos el servidor para asegurarnos de que
+cada determinado número de tareas reiniciemos el servidor para asegurarnos de
+que
 no tengamos futuros fallos en ejecución de servicios, por ejemplo.
 
 Lo mínimo que necesitaremos en cuanto al servidor es asegurarnos de que tengamos
@@ -55,7 +80,8 @@ sudo apt-get update && sudo apt-get upgrade
 ```
 
 El entorno de consola de Ubuntu server puede ser muy complicado de manejar si no
-se tiene experiencia con el Shell Script; sin embargo, considero que para facilitar
+se tiene experiencia con el Shell Script; sin embargo, considero que para
+facilitar
 el manejo del servidor se puede instalar el entorno gráfico y el manejador de
 usuarios.
 
@@ -71,8 +97,10 @@ Ubuntu Usuarios y Grupos:
 sudo apt-get install gnome-system-tools
 ```
 
-Ahora que tenemos una interfaz gráfica, accedemos a un terminal y empezamos a instalar
-nuestras dependencias, empezaremos instalando el servidor ssh y git. Para ello solo
+Ahora que tenemos una interfaz gráfica, accedemos a un terminal y empezamos a
+instalar
+nuestras dependencias, empezaremos instalando el servidor ssh y git. Para ello
+solo
 ejecutamos los comandos.
 
 ```bash
@@ -80,7 +108,8 @@ sudo apt-get install openssh-server
 sudo apt-get install git
 ```
 
-Luego de esto, estamos listos para empezar a configurar el servidor para trabajar
+Luego de esto, estamos listos para empezar a configurar el servidor para
+trabajar
 con Python, en este punto necesitamos darle a nuestro servidor la capacidad de
 crear entornos virtuales e instalar dependencias de Python.
 
@@ -95,9 +124,11 @@ En caso de ya tener pip instalado, es recomendable actualizarlo.
 pip install -U pip
 ```
 
-Bien, en este punto ya tenemos la base lista para empezar a crear nuestro entorno,
+Bien, en este punto ya tenemos la base lista para empezar a crear nuestro
+entorno,
 básicamente crearemos un espacio en nuestro servidor para poder almacenar una
-copia cifrada de nuestro repositorio y otro espacio para almacenar la información
+copia cifrada de nuestro repositorio y otro espacio para almacenar la
+información
 que consumirá apache.
 
 ```bash
@@ -106,7 +137,8 @@ sudo mkdir /var/www/public
 sudo git init --bare /var/www/git/<reponame>.git
 ```
 
-Ahora modificaremos el hook post update del repositorio para que cree el despliegue
+Ahora modificaremos el hook post update del repositorio para que cree el
+despliegue
 automático cuando hagamos push.
 
 ```bash
@@ -137,8 +169,10 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-Genial, en este punto solo nos falta conectar los repositorios, para ello debemos
-clonar el repositorio en lo que se convertirá en nuestro directorio ***publico***
+Genial, en este punto solo nos falta conectar los repositorios, para ello
+debemos
+clonar el repositorio en lo que se convertirá en nuestro directorio
+***publico***
 de apache.
 
 ```bash
@@ -149,8 +183,10 @@ sudo git clone /var/www/git/<reponame>.git
 Este comando nos debió haber dejado una carpeta dentro de public, el último paso
 para terminar la preparación de los directorios que recibirán nuestros archivos
 es darles permisos a nuestros directorios de forma recursiva. (**Advertencia**:
-si estás siguiendo esta guía en un servidor real al cual se conecten más personas,
-quizás debas considerar darle permiso solo a los directorios que acabamos de crear.)
+si estás siguiendo esta guía en un servidor real al cual se conecten más
+personas,
+quizás debas considerar darle permiso solo a los directorios que acabamos de
+crear.)
 
 ```bash
 sudo chmod 777 -R /var/www/
@@ -172,6 +208,7 @@ este punto solo nos queda configurar el host virtual.
 sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/<reponame>.conf
 sudo nano /etc/apache2/sites-available/<reponame>.conf
 ```
+
 Ahora que tenemos creado el archivo del host virtual, solo es modificarlo para
 que se asemeje a lo siguiente:
 
@@ -275,7 +312,8 @@ Ahora agregamos al host el host name que asignamos en nuestro host virtual.
 x.x.x.x     python.<reponame>.dev
 ```
 
-Con esto ya podremos acceder a nuestro proyecto desde nuestra máquina consumiendo
+Con esto ya podremos acceder a nuestro proyecto desde nuestra máquina
+consumiendo
 el servidor que acabamos de configurar.
 
 Al principio de la guía configuramos un servidor git para hacer los despliegues
