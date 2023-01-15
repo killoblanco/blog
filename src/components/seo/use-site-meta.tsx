@@ -4,6 +4,7 @@ interface SeoQuery {
   site: {
     siteMetadata: {
       title: string
+      description: string
     }
   }
 }
@@ -14,6 +15,7 @@ export const useSiteMeta = () => useStaticQuery<SeoQuery>(
       site {
         siteMetadata {
           title
+          description
         }
       }
     }
