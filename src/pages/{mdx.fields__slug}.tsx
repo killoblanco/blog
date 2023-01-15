@@ -14,6 +14,7 @@ import {
   Typography
 } from '@mui/material'
 import { readingTime } from '../components/utils/reading-time'
+import { Seo } from '../components/seo/seo'
 
 const mdxComponents = {
   a: (props: any) => (
@@ -68,7 +69,11 @@ const PostPage: React.FC<PageProps<PostPageProps, PostPageContext>> = ({
   </main>
 )
 
-export const Head: HeadFC = () => <title />
+export const Head: HeadFC<PostPageProps, PostPageContext> = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const { frontmatter } = props.pageContext
+  return (<Seo {...frontmatter}/>)
+}
 
 export const query = graphql`
   query($id: String!) {
@@ -76,6 +81,11 @@ export const query = graphql`
       nodes {
         frontmatter {
           date(locale: "es-CO", formatString: "MMMM D, YYYY")
+          title
+          tags
+          isDraft
+          description
+          categories
         }
         fields {
           timeToRead {
