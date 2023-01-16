@@ -3,6 +3,7 @@ import type { HeadFC, PageProps } from 'gatsby'
 import { graphql } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import {
+  Box,
   Breadcrumbs,
   Divider,
   Paper,
@@ -15,6 +16,8 @@ import {
 } from '@mui/material'
 import { readingTime } from '../components/utils/reading-time'
 import { Seo } from '../components/seo/seo'
+import { ScrollTop } from '../components/scroll-top'
+import { LikeBtn } from '../components/like-button'
 
 const mdxComponents = {
   a: (props: any) => (
@@ -45,7 +48,7 @@ const PostPage: React.FC<PageProps<PostPageProps, PostPageContext>> = ({
   data: { allMdx: { nodes: [post] } },
   pageContext
 }) => (
-  <main>
+  <Box component="main" sx={{ mb: 4 }}>
     <Typography component="h1" variant="h3" gutterBottom>
       {pageContext.frontmatter.title}
     </Typography>
@@ -66,13 +69,15 @@ const PostPage: React.FC<PageProps<PostPageProps, PostPageContext>> = ({
     <MDXProvider components={mdxComponents}>
       {children}
     </MDXProvider>
-  </main>
+    <ScrollTop window={() => window} />
+    <LikeBtn window={() => window} />
+  </Box>
 )
 
 export const Head: HeadFC<PostPageProps, PostPageContext> = (props) => {
   // eslint-disable-next-line react/prop-types
   const { frontmatter } = props.pageContext
-  return (<Seo {...frontmatter}/>)
+  return (<Seo {...frontmatter} />)
 }
 
 export const query = graphql`
