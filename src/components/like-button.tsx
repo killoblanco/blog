@@ -18,6 +18,17 @@ const styles = (t: Theme) => ({
   }
 })
 
+const throwConfetti = () => {
+  const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min
+
+  confetti({
+    angle: randomInRange(55, 125),
+    spread: randomInRange(50, 70),
+    particleCount: randomInRange(50, 100),
+    origin: { y: 0.94, x: 0.45 }
+  })
+}
+
 export const LikeBtn = ({ window }: ScrollTopProps) => {
   const trigger = useScrollTrigger({
     target: (window != null) ? window() : undefined,
@@ -26,14 +37,7 @@ export const LikeBtn = ({ window }: ScrollTopProps) => {
   })
 
   const doLike = () => {
-    const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min
-
-    confetti({
-      angle: randomInRange(55, 125),
-      spread: randomInRange(50, 70),
-      particleCount: randomInRange(50, 100),
-      origin: { y: 0.94, x: 0.45 }
-    })
+    throwConfetti()
   }
 
   return (
