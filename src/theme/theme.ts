@@ -27,7 +27,7 @@ export const theme = (darkMode: boolean): Theme => responsiveFontSizes(
         styleOverrides: {
           root: {
             '&::before, &::after': {
-              borderColor: paletteColor(darkMode ? 'dark' : 'light').primary!.dark
+              borderColor: paletteColor(darkMode ? 'dark' : 'light').primary?.dark
             }
           }
         }
