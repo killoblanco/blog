@@ -23,6 +23,13 @@ export const theme = (darkMode: boolean): Theme => responsiveFontSizes(
           }
         }
       },
+      MuiFab: {
+        styleOverrides: {
+          root: {
+            textTransform: 'capitalize'
+          }
+        }
+      },
       MuiDivider: {
         styleOverrides: {
           root: {
