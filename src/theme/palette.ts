@@ -4,7 +4,7 @@ import { argbFromHex, hexFromArgb, Scheme, themeFromSourceColor } from '@materia
 const { schemes, palettes } = themeFromSourceColor(argbFromHex('#C7F598'))
 const getColorHex = (mode: 'light' | 'dark') => (color: keyof Scheme) => hexFromArgb(schemes[mode][color] as number)
 
-export const paletteColor = (mode: 'light' | 'dark'): Partial<ThemeOptions['palette']> => ({
+export const paletteColor = (mode: 'light' | 'dark'): ThemeOptions['palette'] => ({
   mode,
   common: {
     black: hexFromArgb(palettes.primary.tone(10)),
