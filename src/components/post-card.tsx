@@ -5,7 +5,8 @@ import { readingTime } from './utils/reading-time'
 
 const cardStyles = (t: Theme) => ({
   textDecoration: 'none',
-  p: 2,
+  py: 2,
+  px: 3,
   '&:hover': {
     boxShadow: t.shadows[4]
   },
