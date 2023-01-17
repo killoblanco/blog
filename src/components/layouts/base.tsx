@@ -14,10 +14,10 @@ export const BaseLayout = ({ children }: PropsWithChildren) => (
     <Container maxWidth="lg" sx={{ my: 4 }}>
       <TopBar />
       <Grid2 container spacing={2}>
-        <Grid2 xs={12} md={9} sx={flexOrder(2)}>
+        <Grid2 component="section" xs={12} md={9} sx={flexOrder(2)}>
           {children}
         </Grid2>
-        <Grid2 xs={12} md={3} sx={flexOrder(1)}>
+        <Grid2 component="aside" xs={12} md={3} sx={flexOrder(1)}>
           <SideBar />
         </Grid2>
       </Grid2>
